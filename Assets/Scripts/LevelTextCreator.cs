@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class LevelTextCreator : MonoBehaviour
 {
     [System.Serializable]
@@ -18,6 +19,12 @@ public class LevelTextCreator : MonoBehaviour
     string levelName;
     public string endLevelLine = "END";
 
+    [Header("Level Data")]
+    public int bullets;
+    public bool completed;
+    [Range(0, 3)]
+    public int stars;
+
     [Header("Grid Settings")]
     public float xSpacing = 0.6f;
     public float ySpacing = -0.6f;
@@ -30,8 +37,12 @@ public class LevelTextCreator : MonoBehaviour
 
     void Start()
     {
-        levelName = "LV"+levelNumber.ToString();
+        levelNumber = PlayerPrefs.GetInt("CurrentLevel");
+        levelName = "LV" + levelNumber.ToString();
+
         BuildDictionary();
+
+        LoadLevelProgress();
         GenerateMap();
     }
 
@@ -65,34 +76,55 @@ public class LevelTextCreator : MonoBehaviour
         {
             string line = rawLine.TrimEnd();
 
-            // Look for level name
+            // SEARCH FOR LEVEL HEADER
             if (!readingLevel)
             {
-                if (line == levelName)
+                if (line.StartsWith(levelName))
                 {
                     readingLevel = true;
+
+                    // Example:
+                    // LV1|20
+
+                    string[] data = line.Split('|');
+
+                    if (data.Length >= 2)
+                    {
+                        bullets = int.Parse(data[1]);
+
+                        Debug.Log(
+                            "Loaded Level Data -> " +
+                            "Bullets: " + bullets
+                        );
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Level header format invalid!");
+                    }
+
+                    continue;
                 }
 
                 continue;
             }
 
-            // Stop reading level
+            // STOP READING LEVEL
             if (line == endLevelLine)
             {
                 Debug.Log("Finished loading level: " + levelName);
                 break;
             }
 
-            // Read map line
+            // READ MAP LINES
             for (int x = 0; x < line.Length; x++)
             {
                 char symbol = line[x];
 
-                // SPACE = empty tile
+                // EMPTY SPACE
                 if (symbol == ' ')
                     continue;
 
-                // Skip unknown symbols
+                // UNKNOWN SYMBOL
                 if (!prefabDictionary.ContainsKey(symbol))
                     continue;
 
@@ -116,5 +148,38 @@ public class LevelTextCreator : MonoBehaviour
         {
             Debug.LogError("Level not found: " + levelName);
         }
+    }
+
+    public void SaveLevelProgress(bool completedValue, int starsValue)
+    {
+        completed = completedValue;
+
+        // Only overwrite if new stars are better
+        if (starsValue > stars)
+        {
+            stars = starsValue;
+        }
+
+        // SAVE
+        PlayerPrefs.SetInt(levelName + "_Completed", completed ? 1 : 0);
+        PlayerPrefs.SetInt(levelName + "_Stars", stars);
+
+        PlayerPrefs.Save();
+
+        Debug.Log(
+            "Saved Progress -> " +
+            levelName +
+            " Completed: " + completed +
+            " Stars: " + stars
+        );
+    }
+
+    public void LoadLevelProgress()
+    {
+        completed =
+            PlayerPrefs.GetInt(levelName + "_Completed", 0) == 1;
+
+        stars =
+            PlayerPrefs.GetInt(levelName + "_Stars", 0);
     }
 }

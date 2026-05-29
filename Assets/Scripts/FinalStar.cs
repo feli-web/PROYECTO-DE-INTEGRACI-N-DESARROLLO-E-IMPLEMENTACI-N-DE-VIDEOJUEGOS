@@ -20,7 +20,9 @@ public class FinalStar : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            SceneManager.LoadScene(0);
+            Destroy(gameObject);
+            GameManagerPuzzleShoot gm = GameObject.FindWithTag("Manager").GetComponent<GameManagerPuzzleShoot>();
+            gm.WinCondition();
         }
     }
 }

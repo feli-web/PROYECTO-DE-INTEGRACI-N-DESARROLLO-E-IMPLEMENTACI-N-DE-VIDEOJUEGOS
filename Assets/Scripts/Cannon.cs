@@ -9,11 +9,12 @@ public class Cannon : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 15f;
     public bool canShoot;
-
     private Camera cam;
+    public LevelTextCreator levelTextCreator;
 
     void Start()
     {
+        numberOfShots = levelTextCreator.bullets;
         cam = Camera.main;
         canShoot = true;
     }

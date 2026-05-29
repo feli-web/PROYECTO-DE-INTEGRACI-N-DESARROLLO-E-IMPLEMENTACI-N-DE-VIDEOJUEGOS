@@ -1,4 +1,130 @@
-LV1
+LV1|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV2|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV3|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV4|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV5|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV6|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV7|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV8|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV9|3|FALSE|0
+AB  C
+AB
+AB
+AB
+AB
+AAAAAAA
+      A
+      A
+      A
+      A
+      A
+      A
+END
+LV10|3|FALSE|0
 AB  C
 AB
 AB
