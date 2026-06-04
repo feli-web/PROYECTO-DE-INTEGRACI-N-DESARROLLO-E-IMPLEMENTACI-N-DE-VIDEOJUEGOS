@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20ef6ff9646b37d43a287552f5c18b71
+guid: da5b42092672fb54aa27abb9e1c40643
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8656967261164106121
-    second: Block-60_0
+      213: -1473990719688874264
+    second: Final Star1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,7 +110,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 50
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Block-60_0
+      name: Final Star1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77e802e74264cd780800000000000000
-      internalID: -8656967261164106121
+      spriteID: 8e6e8beff355b8be0800000000000000
+      internalID: -1473990719688874264
       vertices: []
       indices: 
       edges: []
@@ -153,7 +153,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Block-60_0: -8656967261164106121
+      Final Star1_0: -1473990719688874264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
