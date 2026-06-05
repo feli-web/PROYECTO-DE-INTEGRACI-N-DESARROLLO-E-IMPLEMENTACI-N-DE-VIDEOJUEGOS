@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Cannon : MonoBehaviour
@@ -11,10 +12,12 @@ public class Cannon : MonoBehaviour
     public bool canShoot;
     private Camera cam;
     public LevelTextCreator levelTextCreator;
+    public TextMeshProUGUI bulletCountText;
 
     void Start()
     {
         numberOfShots = levelTextCreator.bullets;
+        bulletCountText.text = numberOfShots.ToString();
         cam = Camera.main;
         canShoot = true;
     }
@@ -45,6 +48,7 @@ public class Cannon : MonoBehaviour
         if (touch.phase == TouchPhase.Ended)
         {
             Shoot();
+            transform.rotation = Quaternion.identity;
         }
     }
 
@@ -53,14 +57,17 @@ public class Cannon : MonoBehaviour
 
     void Aim(Vector3 screenPosition)
     {
-        Vector3 worldPos = cam.ScreenToWorldPoint(screenPosition);
-        worldPos.z = 0f;
+        if (canShoot)
+        {
+            Vector3 worldPos = cam.ScreenToWorldPoint(screenPosition);
+            worldPos.z = 0f;
 
-        Vector2 direction = worldPos - transform.position;
+            Vector2 direction = worldPos - transform.position;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        }
     }
 
     void Shoot()
@@ -71,6 +78,7 @@ public class Cannon : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * bulletSpeed;
             numberOfShots--;
             canShoot = false;
+            bulletCountText.text = numberOfShots.ToString();
         }
     }
 }

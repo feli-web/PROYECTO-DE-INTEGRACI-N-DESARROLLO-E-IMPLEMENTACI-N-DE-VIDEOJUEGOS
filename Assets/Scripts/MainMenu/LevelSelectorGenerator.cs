@@ -20,6 +20,9 @@ public class LevelSelectorGenerator : MonoBehaviour
     public Transform contentParent;
     public GameObject buttonPrefab;
 
+    [Header("Star Display")]
+    public Sprite[] starSprites; // 0 stars, 1 star, 2 stars, 3 stars
+
     private List<LevelData> levels = new List<LevelData>();
 
     void Start()
@@ -39,12 +42,8 @@ public class LevelSelectorGenerator : MonoBehaviour
             if (string.IsNullOrEmpty(line))
                 continue;
 
-            // Only read headers
             if (!line.StartsWith("LV"))
                 continue;
-
-            // Example:
-            // LV1|20
 
             string[] data = line.Split('|');
 
@@ -53,17 +52,14 @@ public class LevelSelectorGenerator : MonoBehaviour
 
             LevelData level = new LevelData();
 
-            // LEVEL NUMBER
             string levelString = data[0].Replace("LV", "");
             level.levelNumber = int.Parse(levelString);
 
-            // BULLETS
             level.bullets = int.Parse(data[1]);
 
             levels.Add(level);
         }
 
-        // SORT LOWEST TO HIGHEST
         levels.Sort((a, b) => a.levelNumber.CompareTo(b.levelNumber));
     }
 
@@ -102,7 +98,6 @@ public class LevelSelectorGenerator : MonoBehaviour
             // LOCK SYSTEM
             bool locked = false;
 
-            // LV1 always unlocked
             if (level.levelNumber == 1)
             {
                 locked = false;
@@ -134,24 +129,26 @@ public class LevelSelectorGenerator : MonoBehaviour
             // BUTTON INTERACTABLE
             button.interactable = !locked;
 
-            // STARS
-            Transform star1 =
-                buttonObj.transform.Find("Stars/Star1");
+            // STAR DISPLAY IMAGE
+            Transform starDisplayTransform =
+                buttonObj.transform.Find("StarDisplay");
 
-            Transform star2 =
-                buttonObj.transform.Find("Stars/Star2");
+            if (starDisplayTransform != null)
+            {
+                Image starDisplayImage =
+                    starDisplayTransform.GetComponent<Image>();
 
-            Transform star3 =
-                buttonObj.transform.Find("Stars/Star3");
+                if (starDisplayImage != null &&
+                    starSprites != null &&
+                    starSprites.Length > 0)
+                {
+                    int spriteIndex =
+                        Mathf.Clamp(stars, 0, starSprites.Length - 1);
 
-            if (star1 != null)
-                star1.gameObject.SetActive(stars >= 1);
-
-            if (star2 != null)
-                star2.gameObject.SetActive(stars >= 2);
-
-            if (star3 != null)
-                star3.gameObject.SetActive(stars >= 3);
+                    starDisplayImage.sprite =
+                        starSprites[spriteIndex];
+                }
+            }
 
             // CLICK EVENT
             int levelNumberCopy = level.levelNumber;
@@ -167,10 +164,8 @@ public class LevelSelectorGenerator : MonoBehaviour
     {
         Debug.Log("Entering Level: " + levelNumber);
 
-        // SAVE CURRENT LEVEL
         PlayerPrefs.SetInt("CurrentLevel", levelNumber);
 
-        // Example:
         SceneManager.LoadScene(1);
     }
 }

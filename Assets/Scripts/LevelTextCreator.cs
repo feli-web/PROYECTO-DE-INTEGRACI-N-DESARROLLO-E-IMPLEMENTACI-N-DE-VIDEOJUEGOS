@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using TMPro;
 
 public class LevelTextCreator : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class LevelTextCreator : MonoBehaviour
     public bool completed;
     [Range(0, 3)]
     public int stars;
+    public TextMeshProUGUI levelText;
 
     [Header("Grid Settings")]
     public float xSpacing = 0.6f;
@@ -39,6 +40,7 @@ public class LevelTextCreator : MonoBehaviour
     {
         levelNumber = PlayerPrefs.GetInt("CurrentLevel");
         levelName = "LV" + levelNumber.ToString();
+        levelText.text = "LV " + levelNumber;
 
         BuildDictionary();
 
