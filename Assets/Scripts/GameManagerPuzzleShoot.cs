@@ -31,12 +31,14 @@ public class GameManagerPuzzleShoot : MonoBehaviour
         StarCalc();
 
         levelTextCreator.SaveLevelProgress(true, stars);
-
-        SceneManager.LoadScene(0);
+        
+        SceneManager.LoadScene(2);
+        PlayerPrefs.SetString("YesNo", "YES");
     }
     public void LoseCondition()
     {
-        Debug.Log("You Lost");
+        SceneManager.LoadScene(2);
+        PlayerPrefs.SetString("YesNo", "NO");
     }
 
     public void ChangeScene(int i)

@@ -159,7 +159,14 @@ public class LevelTextCreator : MonoBehaviour
         // Only overwrite if new stars are better
         if (starsValue > stars)
         {
+            int additionalStars = starsValue - stars;
+
             stars = starsValue;
+
+            PlayerPrefs.SetInt(
+                "StarAmount",
+                PlayerPrefs.GetInt("StarAmount", 0) + additionalStars
+            );
         }
 
         // SAVE

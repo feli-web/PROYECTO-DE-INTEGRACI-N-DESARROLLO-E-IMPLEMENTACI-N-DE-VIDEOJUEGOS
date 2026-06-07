@@ -19,6 +19,7 @@ public class LevelSelectorGenerator : MonoBehaviour
     [Header("UI")]
     public Transform contentParent;
     public GameObject buttonPrefab;
+    public ScrollRect scrollRect;
 
     [Header("Star Display")]
     public Sprite[] starSprites; // 0 stars, 1 star, 2 stars, 3 stars
@@ -67,22 +68,21 @@ public class LevelSelectorGenerator : MonoBehaviour
     {
         bool foundCurrentLevel = false;
 
+        RectTransform highestUnlockedButton = null;
+
         foreach (LevelData level in levels)
         {
             GameObject buttonObj =
                 Instantiate(buttonPrefab, contentParent);
 
-            // BUTTON
             Button button =
                 buttonObj.GetComponent<Button>();
 
-            // TEXT
             TMP_Text levelText =
                 buttonObj.GetComponentInChildren<TMP_Text>();
 
             levelText.text = level.levelNumber.ToString();
 
-            // LOAD SAVE DATA
             bool completed =
                 PlayerPrefs.GetInt(
                     "LV" + level.levelNumber + "_Completed",
@@ -95,7 +95,6 @@ public class LevelSelectorGenerator : MonoBehaviour
                     0
                 );
 
-            // LOCK SYSTEM
             bool locked = false;
 
             if (level.levelNumber == 1)
@@ -117,7 +116,6 @@ public class LevelSelectorGenerator : MonoBehaviour
                 }
             }
 
-            // LOCK ICON
             Transform lockIcon =
                 buttonObj.transform.Find("LockIcon");
 
@@ -126,10 +124,14 @@ public class LevelSelectorGenerator : MonoBehaviour
                 lockIcon.gameObject.SetActive(locked);
             }
 
-            // BUTTON INTERACTABLE
             button.interactable = !locked;
 
-            // STAR DISPLAY IMAGE
+            if (!locked)
+            {
+                highestUnlockedButton =
+                    buttonObj.GetComponent<RectTransform>();
+            }
+
             Transform starDisplayTransform =
                 buttonObj.transform.Find("StarDisplay");
 
@@ -150,7 +152,6 @@ public class LevelSelectorGenerator : MonoBehaviour
                 }
             }
 
-            // CLICK EVENT
             int levelNumberCopy = level.levelNumber;
 
             button.onClick.AddListener(() =>
@@ -158,6 +159,39 @@ public class LevelSelectorGenerator : MonoBehaviour
                 EnterLevel(levelNumberCopy);
             });
         }
+
+        Canvas.ForceUpdateCanvases();
+
+        if (highestUnlockedButton != null)
+        {
+            ScrollToButton(highestUnlockedButton);
+        }
+    }
+
+    void ScrollToButton(RectTransform target)
+    {
+        if (scrollRect == null)
+            return;
+
+        Canvas.ForceUpdateCanvases();
+
+        RectTransform contentRect =
+            contentParent as RectTransform;
+
+        float contentHeight =
+            contentRect.rect.height;
+
+        float viewportHeight =
+            scrollRect.viewport.rect.height;
+
+        float targetY =
+            Mathf.Abs(target.anchoredPosition.y);
+
+        float normalizedPosition =
+            1f - (targetY / (contentHeight - viewportHeight));
+
+        scrollRect.verticalNormalizedPosition =
+            Mathf.Clamp01(normalizedPosition);
     }
 
     public void EnterLevel(int levelNumber)

@@ -22,6 +22,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             cannon.canShoot = true;
+            if (cannon.numberOfShots <= 0)
+            {
+                GameManagerPuzzleShoot gm = GameObject.FindWithTag("Manager").GetComponent<GameManagerPuzzleShoot>();
+                gm.LoseCondition();
+            }
         }
         if (collision.gameObject.CompareTag("Key"))
         {
