@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Cannon cannon;
+    public AudioClip bounceClip;
     void Start()
     {
         cannon = GameObject.FindWithTag("Player").GetComponent<Cannon>();
@@ -31,6 +32,10 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject)
+        {
+            AudioManager.Instance.PlaySFX(bounceClip);
         }
     }
     void Life()

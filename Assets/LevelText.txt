@@ -1,16 +1,16 @@
-LV1|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
+LV1|3
+    F
+
+
+B
+
+
+        B
+        
+
+B
+
+
 END
 LV2|3|FALSE|0
 AB  C

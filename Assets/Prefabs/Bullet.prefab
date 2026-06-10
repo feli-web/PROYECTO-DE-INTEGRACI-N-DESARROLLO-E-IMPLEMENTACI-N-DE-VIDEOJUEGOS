@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fdf0bb8ec216446be4f1a42f5748ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceClip: {fileID: 8300000, guid: 0775c1b4f85a05d46bd61a533c706f6f, type: 3}
 --- !u!58 &4510335321289926924
 CircleCollider2D:
   m_ObjectHideFlags: 0

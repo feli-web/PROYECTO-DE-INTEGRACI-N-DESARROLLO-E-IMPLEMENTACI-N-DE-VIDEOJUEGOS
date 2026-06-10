@@ -294,12 +294,16 @@ MonoBehaviour:
   ySpacing: -0.6
   startPosition: {x: -2.4, y: 3.9, z: 0}
   prefabMappings:
-  - symbol: 65
-    prefab: {fileID: 7260482305004734165, guid: d32cb968fba184140adf644732486dd5, type: 3}
   - symbol: 66
+    prefab: {fileID: 7260482305004734165, guid: d32cb968fba184140adf644732486dd5, type: 3}
+  - symbol: 68
     prefab: {fileID: 2890205527221059480, guid: 4772480594cb4d2458b68185e394c8b0, type: 3}
-  - symbol: 67
+  - symbol: 70
     prefab: {fileID: 4210888135419941026, guid: 896de7787f9c93e41878cd6837d8aebd, type: 3}
+  - symbol: 76
+    prefab: {fileID: 6198618287282105308, guid: 1696a51752e1b094c9d292f42d577ad4, type: 3}
+  - symbol: 75
+    prefab: {fileID: 3677851240692793542, guid: 4e07de78a3ddcaa47bdbf76d5386aa8b, type: 3}
 --- !u!4 &324853494
 Transform:
   m_ObjectHideFlags: 0
