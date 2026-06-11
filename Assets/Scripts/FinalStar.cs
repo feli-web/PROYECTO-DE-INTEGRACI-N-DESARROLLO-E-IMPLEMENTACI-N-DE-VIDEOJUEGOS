@@ -14,7 +14,7 @@ public class FinalStar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(rotateSpeed);
+        transform.Rotate(rotateSpeed * Time.deltaTime);
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

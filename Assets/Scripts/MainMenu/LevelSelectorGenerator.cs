@@ -25,8 +25,7 @@ public class LevelSelectorGenerator : MonoBehaviour
     public Sprite[] starSprites; // 0 stars, 1 star, 2 stars, 3 stars
 
     private List<LevelData> levels = new List<LevelData>();
-    [Header("Sound")]
-    public AudioClip clickSound;
+
 
     void Start()
     {
@@ -203,6 +202,5 @@ public class LevelSelectorGenerator : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", levelNumber);
 
         SceneManager.LoadScene(1);
-        AudioManager.Instance.PlaySFX(clickSound);
     }
 }

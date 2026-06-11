@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Arrow-PuzzleShoot1_0: -5637320440621517613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelTextCreator : MonoBehaviour
 {
@@ -149,6 +150,7 @@ public class LevelTextCreator : MonoBehaviour
         if (!readingLevel)
         {
             Debug.LogError("Level not found: " + levelName);
+            SceneManager.LoadScene(0);
         }
     }
 

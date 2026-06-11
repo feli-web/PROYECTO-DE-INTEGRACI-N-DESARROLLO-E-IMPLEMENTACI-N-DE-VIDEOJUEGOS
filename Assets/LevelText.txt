@@ -1,140 +1,137 @@
-LV1|3
-    F
+LV1|5
+         
+         
+         
+         
+         
+         
+         
+         
+         
+    F    
+         
+    D    
+END
+LV2|5
+         
+         
+         
+         
+         
+         
+         
+         
+   D D   
+         
+    F    
+   D D   
+END
+LV3|6
+         
+         
+         
+         
+         
+         
+         
+  DDDDD  
+  D   D  
+  D F D  
+  D   D  
+  DDDDD  
+END
+LV4|6
+         
+         
+         
+         
+         
+         
+         
+ BBBBBBB 
+ B  F  B 
+ B  D  B 
+ B     B 
+ BBB BBB 
+END
+LV5|6
+         
+         
+         
+         
+         
+         
+         
+ B     B 
+ B DDD B 
+ B DFD B 
+ B DDD B 
+ BBBBBBB 
+END
+LV6|7
+         
+         
+   BBB   
+   BFB   
+   B B   
+   B B   
+   B B   
+   B B   
+   B B   
+   B   
+   BBB   
+         
+END
+LV7|8
+BBB   B
+BFB   
+B B B K B
+B B   
+B B   B
+B B   
+B B   
+B L  
+BBB    
+END
+LV8|8
+BBBBBBBBB
+B       B
+B   F   B
+B       B
+LLLLLLLLL
+B       B
+B       B
+BK      B
+B       B
+B       B
 
+         
+END
+LV9|9
+B  B  B  
+  BF B  B
+B  B  B  
+  B  B  B
+B  B  B  
+  B  B  B
+B  B  B  
+  B  B  B
+B  B  B  
+  B  B  B
+  
+  
+END
+LV10|9
+    F     
+DDDDDDDDD     
+DDDDDDDDD     
+DDDDDDDDD     
+DDDDDDDDD     
+DDDDDDDDD     
+DDDDDDDDD     
+DDDDDDDDD     
+DDDDDDD     
+DDDDDDD   
 
-B
-
-
-        B
-        
-
-B
-
-
-END
-LV2|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV3|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV4|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV5|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV6|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV7|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV8|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV9|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
-END
-LV10|3|FALSE|0
-AB  C
-AB
-AB
-AB
-AB
-AAAAAAA
-      A
-      A
-      A
-      A
-      A
-      A
+  
 END
