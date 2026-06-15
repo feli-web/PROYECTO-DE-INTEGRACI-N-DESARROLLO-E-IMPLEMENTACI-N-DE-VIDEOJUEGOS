@@ -1179,7 +1179,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9b9da3e397579e2439dda2f13ccb99cd, type: 3}
   - {fileID: 21300000, guid: a8e2019d81549394c824f523016a513b, type: 3}
   - {fileID: 21300000, guid: 27dc3b30459046d4589962f32c4e2997, type: 3}
-  clickSound: {fileID: 8300000, guid: c067de4cfbebd2e49b496e13a83808e8, type: 3}
+  clickSound: {fileID: 8300000, guid: 975d133a31f22514e881fc8e2c72296c, type: 3}
   bgm: {fileID: 8300000, guid: 8f997662885b0e2478c6d1e62bb6f1ac, type: 3}
 --- !u!4 &2024122871
 Transform:

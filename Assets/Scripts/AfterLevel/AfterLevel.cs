@@ -9,6 +9,7 @@ public class AfterLevel : MonoBehaviour
     public GameObject LoseUI;
     public int currentLevel;
     string yesNo;
+    public AudioClip clickSound;
     void Start()
     {
         currentLevel = PlayerPrefs.GetInt("CurrentLevel");
@@ -33,13 +34,14 @@ public class AfterLevel : MonoBehaviour
     public void ChangeScene(int i)
     {
         SceneManager.LoadScene(i);
+        AudioManager.Instance.PlaySFX(clickSound);
     }
     public void NextLevel()
     {
         Debug.Log("Entering Level: " + currentLevel+1);
 
         PlayerPrefs.SetInt("CurrentLevel", currentLevel+1);
-
+        AudioManager.Instance.PlaySFX(clickSound);
         SceneManager.LoadScene(1);
     }
 

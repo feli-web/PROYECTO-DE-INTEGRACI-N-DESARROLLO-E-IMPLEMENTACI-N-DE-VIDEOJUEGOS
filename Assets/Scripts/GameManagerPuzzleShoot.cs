@@ -9,6 +9,7 @@ public class GameManagerPuzzleShoot : MonoBehaviour
     int stars;
     int startingBullets;
     int remainingBullets;
+    public AudioClip clickSound;
 
     [Header("Star Display")]
     public Image starDisplayImage;
@@ -44,6 +45,7 @@ public class GameManagerPuzzleShoot : MonoBehaviour
     public void ChangeScene(int i)
     {
         SceneManager.LoadScene(i);
+        AudioManager.Instance.PlaySFX(clickSound);
     }
     public void StarDisplay()
     {

@@ -398,6 +398,7 @@ MonoBehaviour:
   WinUI: {fileID: 41931751}
   LoseUI: {fileID: 713988456}
   currentLevel: 0
+  clickSound: {fileID: 8300000, guid: 975d133a31f22514e881fc8e2c72296c, type: 3}
 --- !u!4 &1011785280
 Transform:
   m_ObjectHideFlags: 0
