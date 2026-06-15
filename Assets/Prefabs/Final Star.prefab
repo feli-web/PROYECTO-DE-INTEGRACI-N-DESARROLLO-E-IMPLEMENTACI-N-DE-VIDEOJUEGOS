@@ -135,3 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: {x: 0, y: 0, z: 300}
+  starClip: {fileID: 8300000, guid: 60b9441bec1c6cc42a73ba4fb4e52d98, type: 3}

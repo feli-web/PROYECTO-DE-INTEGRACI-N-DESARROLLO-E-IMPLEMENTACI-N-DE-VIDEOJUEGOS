@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class FinalStar : MonoBehaviour
 {
     public Vector3 rotateSpeed;
+    public AudioClip starClip;
     void Start()
     {
         
@@ -23,6 +24,7 @@ public class FinalStar : MonoBehaviour
             Destroy(gameObject);
             GameManagerPuzzleShoot gm = GameObject.FindWithTag("Manager").GetComponent<GameManagerPuzzleShoot>();
             gm.WinCondition();
+            AudioManager.Instance.PlaySFX(starClip);
         }
     }
 }

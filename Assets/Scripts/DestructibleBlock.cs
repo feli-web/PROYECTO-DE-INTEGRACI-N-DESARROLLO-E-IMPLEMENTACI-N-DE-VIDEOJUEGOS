@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestructibleBlock : MonoBehaviour
 {
+    public AudioClip hitSound;
     public int hit;
     void Start()
     {
@@ -18,8 +19,9 @@ public class DestructibleBlock : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-                hit--;
-                if (hit <= 0)
+            AudioManager.Instance.PlaySFX(hitSound);
+            hit--;
+            if (hit <= 0)
                 {
                     Destroy(gameObject);
                 }

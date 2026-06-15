@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource bgmSource;
 
     void Awake()
     {
@@ -22,5 +23,10 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {;
         sfxSource.PlayOneShot(clip);
+    }
+    public void PlayBGM(AudioClip clip)
+    {
+        bgmSource.clip =clip;
+        bgmSource.Play();
     }
 }

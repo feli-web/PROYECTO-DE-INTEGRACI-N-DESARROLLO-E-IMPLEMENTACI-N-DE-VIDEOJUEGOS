@@ -22,13 +22,19 @@ public class LevelSelectorGenerator : MonoBehaviour
     public ScrollRect scrollRect;
 
     [Header("Star Display")]
-    public Sprite[] starSprites; // 0 stars, 1 star, 2 stars, 3 stars
+    public Sprite[] starSprites; 
+    
+    [Header("Sound")]
+    public AudioClip clickSound; 
+    public AudioClip bgm; 
+
 
     private List<LevelData> levels = new List<LevelData>();
 
 
     void Start()
     {
+        AudioManager.Instance.PlayBGM(bgm);
         ReadLevels();
         GenerateButtons();
     }
@@ -202,5 +208,7 @@ public class LevelSelectorGenerator : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", levelNumber);
 
         SceneManager.LoadScene(1);
+
+        AudioManager.Instance.PlaySFX(clickSound);
     }
 }

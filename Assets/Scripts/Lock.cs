@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lock : MonoBehaviour
 {
     GameObject key;
+    public AudioClip unlockSound;
     void Start()
     {
         key = GameObject.FindWithTag("Key");
@@ -16,6 +17,7 @@ public class Lock : MonoBehaviour
         if (key == null)
         {
             Destroy(gameObject);
+            AudioManager.Instance.PlaySFX(unlockSound);
         }    
     }
     
