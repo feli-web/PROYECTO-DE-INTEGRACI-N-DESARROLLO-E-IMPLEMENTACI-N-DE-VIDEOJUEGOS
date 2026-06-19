@@ -45,4 +45,5 @@ public class AfterLevel : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class Lock : MonoBehaviour
 {
     GameObject key;
     public AudioClip unlockSound;
+    public float dissappearTime;
     void Start()
     {
         key = GameObject.FindWithTag("Key");
@@ -16,8 +18,8 @@ public class Lock : MonoBehaviour
     {
         if (key == null)
         {
-            Destroy(gameObject);
             AudioManager.Instance.PlaySFX(unlockSound);
+            Destroy(gameObject);
         }    
     }
     

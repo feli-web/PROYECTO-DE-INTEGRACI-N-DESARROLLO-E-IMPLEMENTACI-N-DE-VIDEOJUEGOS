@@ -94,7 +94,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4210888135419941026}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -118,9 +117,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
   m_Radius: 0.3
 --- !u!114 &5817107805021767120
 MonoBehaviour:
@@ -134,5 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef090010d608d774fbf932a5936c8efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: {x: 0, y: 0, z: 300}
+  rotateSpeed: 2
   starClip: {fileID: 8300000, guid: 60b9441bec1c6cc42a73ba4fb4e52d98, type: 3}
+  dissappearTime: 1

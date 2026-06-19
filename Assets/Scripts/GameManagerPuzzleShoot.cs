@@ -66,4 +66,13 @@ public class GameManagerPuzzleShoot : MonoBehaviour
         else
             stars = 0;
     }
+
+    public void BGMButton()
+    {
+        AudioManager.Instance.bgmSource.mute = !AudioManager.Instance.bgmSource.mute;
+    }
+    public void SFXButton()
+    {
+        AudioManager.Instance.sfxSource.mute = !AudioManager.Instance.sfxSource.mute;
+    }
 }

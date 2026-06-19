@@ -1,30 +1,36 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class FinalStar : MonoBehaviour
 {
-    public Vector3 rotateSpeed;
+    public float rotateSpeed;
     public AudioClip starClip;
+    public float dissappearTime;
     void Start()
     {
-        
+        transform.DORotate(
+    new Vector3(0, 0, 360),
+    rotateSpeed,
+    RotateMode.FastBeyond360)
+    .SetLoops(-1, LoopType.Incremental)
+    .SetEase(Ease.Linear);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        transform.Rotate(rotateSpeed * Time.deltaTime);
-    }
+    
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
             GameManagerPuzzleShoot gm = GameObject.FindWithTag("Manager").GetComponent<GameManagerPuzzleShoot>();
-            gm.WinCondition();
             AudioManager.Instance.PlaySFX(starClip);
+            Destroy(collision.gameObject);
+            transform.DOScale(Vector3.zero, dissappearTime).OnComplete(() => gm.WinCondition());
+            Invoke("WC",dissappearTime);
         }
     }
 }
