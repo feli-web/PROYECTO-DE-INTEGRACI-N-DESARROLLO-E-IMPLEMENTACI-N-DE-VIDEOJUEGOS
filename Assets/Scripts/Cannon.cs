@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,77 +6,92 @@ public class Cannon : MonoBehaviour
     public int numberOfShots;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public GameObject pointer;
     public float bulletSpeed = 15f;
     public bool canShoot;
+
     private Camera cam;
+
     public LevelTextCreator levelTextCreator;
     public TextMeshProUGUI bulletCountText;
 
-    void Start()
+    private bool isAiming;
+
+    private void Start()
     {
         numberOfShots = levelTextCreator.bullets;
         bulletCountText.text = numberOfShots.ToString();
+
         cam = Camera.main;
         canShoot = true;
+
+        pointer.SetActive(false);
     }
 
-    void Update()
+    public void BeginAim(Vector2 screenPosition)
     {
-#if UNITY_EDITOR
+        if (!canShoot)
+            return;
 
-        if (Input.GetMouseButton(0))
-        {
-            Aim(Input.mousePosition);
-        }
+        isAiming = true;
+        pointer.SetActive(true);
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            Shoot();
-            transform.rotation = Quaternion.identity;
-        }
-
-#else
-
-    if (Input.touchCount > 0)
-    {
-        Touch touch = Input.GetTouch(0);
-
-        Aim(touch.position);
-
-        if (touch.phase == TouchPhase.Ended)
-        {
-            Shoot();
-            transform.rotation = Quaternion.identity;
-        }
+        UpdateAim(screenPosition);
     }
 
-#endif
+    public void UpdateAim(Vector2 screenPosition)
+    {
+        if (!isAiming || !canShoot)
+            return;
+
+        Vector3 worldPos = cam.ScreenToWorldPoint(screenPosition);
+        worldPos.z = 0f;
+
+        Vector2 direction = worldPos - transform.position;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
-    void Aim(Vector3 screenPosition)
+    public void EndAim(Vector2 screenPosition)
     {
-        if (canShoot)
-        {
-            Vector3 worldPos = cam.ScreenToWorldPoint(screenPosition);
-            worldPos.z = 0f;
+        if (!isAiming || !canShoot)
+            return;
 
-            Vector2 direction = worldPos - transform.position;
+        isAiming = false;
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        pointer.SetActive(false);
 
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-        }
+        Shoot();
+
+        transform.rotation = Quaternion.identity;
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        if (numberOfShots > 0 && canShoot == true)
+        if (numberOfShots <= 0)
+            return;
+
+        GameObject bullet =
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        bullet.GetComponent<Rigidbody2D>().velocity =
+            firePoint.up * bulletSpeed;
+
+        numberOfShots--;
+
+        bulletCountText.text = numberOfShots.ToString();
+
+        canShoot = false;
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
         {
-            var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * bulletSpeed;
-            numberOfShots--;
-            canShoot = false;
-            bulletCountText.text = numberOfShots.ToString();
+            isAiming = false;
+            pointer.SetActive(false);
         }
     }
 }

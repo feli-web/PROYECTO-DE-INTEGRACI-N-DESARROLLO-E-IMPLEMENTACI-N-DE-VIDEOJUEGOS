@@ -210,15 +210,12 @@ public class LevelSelectorGenerator : MonoBehaviour
         SceneManager.LoadScene(1);
 
         AudioManager.Instance.PlaySFX(clickSound);
+
+        if (PlayerPrefs.GetInt("AdShowCount") >= 2)
+        {
+            AdsManager.Instance.inter.ShowInterstitialAd();
+            PlayerPrefs.SetInt("AdShowCount", 0);
+        }
     }
 
-
-    public void BGMButton()
-    {
-        AudioManager.Instance.bgmSource.mute = !AudioManager.Instance.bgmSource.mute;
-    }
-    public void SFXButton()
-    {
-        AudioManager.Instance.sfxSource.mute = !AudioManager.Instance.sfxSource.mute;
-    }
 }

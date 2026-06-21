@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 2
-  starClip: {fileID: 8300000, guid: 60b9441bec1c6cc42a73ba4fb4e52d98, type: 3}
+  starClip: {fileID: 8300000, guid: f71832b92e71abe4783f6498c45eb4a3, type: 3}
   dissappearTime: 1
