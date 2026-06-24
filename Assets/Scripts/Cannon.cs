@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cannon : MonoBehaviour
 {
     public int numberOfShots;
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public GameObject pointer;
+    public TrajectoryPreview tp;
     public float bulletSpeed = 15f;
     public bool canShoot;
 
@@ -14,6 +15,7 @@ public class Cannon : MonoBehaviour
 
     public LevelTextCreator levelTextCreator;
     public TextMeshProUGUI bulletCountText;
+    public Image bulletCount;
 
     private bool isAiming;
 
@@ -21,11 +23,12 @@ public class Cannon : MonoBehaviour
     {
         numberOfShots = levelTextCreator.bullets;
         bulletCountText.text = numberOfShots.ToString();
-
+        bulletCount.sprite = bulletPrefab.GetComponent<SpriteRenderer>().sprite;
+        bulletCount.color = bulletPrefab.GetComponent<SpriteRenderer>().color;
+        
         cam = Camera.main;
         canShoot = true;
 
-        pointer.SetActive(false);
     }
 
     public void BeginAim(Vector2 screenPosition)
@@ -34,7 +37,7 @@ public class Cannon : MonoBehaviour
             return;
 
         isAiming = true;
-        pointer.SetActive(true);
+  
 
         UpdateAim(screenPosition);
     }
@@ -52,6 +55,8 @@ public class Cannon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+
+        tp.ShowTrajectory(transform.position, direction);
     }
 
     public void EndAim(Vector2 screenPosition)
@@ -61,7 +66,7 @@ public class Cannon : MonoBehaviour
 
         isAiming = false;
 
-        pointer.SetActive(false);
+        tp.HideTrajectory();
 
         Shoot();
 
@@ -86,12 +91,5 @@ public class Cannon : MonoBehaviour
         canShoot = false;
     }
 
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            isAiming = false;
-            pointer.SetActive(false);
-        }
-    }
+    
 }

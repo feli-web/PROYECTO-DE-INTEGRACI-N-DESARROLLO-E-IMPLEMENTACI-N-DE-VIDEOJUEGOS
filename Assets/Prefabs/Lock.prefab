@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5783461086964954776}
   - component: {fileID: 1583137851800078421}
   - component: {fileID: 4636474237860617636}
-  - component: {fileID: 4880666024252056993}
   m_Layer: 0
   m_Name: Lock
-  m_TagString: Untagged
+  m_TagString: Lock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a5f80a73e6933a4facd6ec50dc30530, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64f452790e8047a40a6f72d42ea2810b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,17 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &4880666024252056993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6198618287282105308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf0d91bee621df449ca2c327dc9c6f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlockSound: {fileID: 8300000, guid: 478c9257514ad3249a61d56bd02ac578, type: 3}
-  dissappearTime: 1

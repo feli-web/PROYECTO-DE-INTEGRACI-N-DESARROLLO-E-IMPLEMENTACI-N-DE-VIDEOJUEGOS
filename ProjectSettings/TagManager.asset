@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Key
   - Manager
+  - Lock
+  - Wall
   layers:
   - Default
   - TransparentFX

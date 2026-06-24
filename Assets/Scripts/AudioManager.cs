@@ -80,7 +80,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
+        float i = Random.Range(0.5f, 1f);
         sfxSource.PlayOneShot(clip);
+        sfxSource.pitch = i;
     }
 
     public void PlayBGM(AudioClip clip)

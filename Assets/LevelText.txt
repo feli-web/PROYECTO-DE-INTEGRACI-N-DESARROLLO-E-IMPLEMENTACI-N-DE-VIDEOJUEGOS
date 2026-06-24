@@ -1,58 +1,57 @@
-LV1|5
+LV1|3
+         
+         
+    F         
          
          
          
          
          
+        
          
-         
-         
-         
-    F    
-         
-    D    
+        
 END
-LV2|5
+LV2|3
          
          
          
          
+    F     
          
          
+    B     
+      
          
-         
-   D D   
-         
-    F    
-   D D   
+        
+      
 END
-LV3|6
+LV3|3
          
+    D     
          
+  D F D    
          
+    D     
          
-         
-         
-         
-  DDDDD  
-  D   D  
-  D F D  
-  D   D  
-  DDDDD  
+    
+    
+    
+    
+    
 END
-LV4|6
+LV4|6         
          
          
          
-         
-         
-         
-         
- BBBBBBB 
- B  F  B 
- B  D  B 
- B     B 
- BBB BBB 
+BBBBBBBBB 
+B       B
+B   F   B
+B   D   B  
+BB     BB
+
+
+
+  
 END
 LV5|6
          
@@ -71,15 +70,15 @@ END
 LV6|7
          
          
-   BBB   
-   BFB   
-   B B   
-   B B   
-   B B   
-   B B   
-   B B   
+   BBBB   
+   BF B   
+   B  B   
+   B  B   
+   B  B   
+   B  B   
+   B     
    B   
-   BBB   
+   BBBB   
          
 END
 LV7|8
@@ -93,18 +92,19 @@ B B
 B L  
 BBB    
 END
-LV8|8
-BBBBBBBBB
-B       B
-B   F   B
-B       B
-LLLLLLLLL
-B       B
-B       B
-BK      B
-B       B
-B       B
-
+LV8|9
+BBBBBBB
+ B     B 
+ B D L  
+ B D K  
+ B D L B 
+ BBBBBBB      
+ L DDD L 
+ L D B L 
+ L D F L 
+ L DDD L 
+ B     B 
+ BBBBBBB
          
 END
 LV9|9
@@ -122,7 +122,7 @@ B  B  B
   
 END
 LV10|9
-    F     
+      F     
 DDDDDDDDD     
 DDDDDDDDD     
 DDDDDDDDD     
