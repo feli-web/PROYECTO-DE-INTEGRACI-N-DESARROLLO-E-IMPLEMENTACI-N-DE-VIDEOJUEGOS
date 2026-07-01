@@ -10,6 +10,8 @@ public class AfterLevel : MonoBehaviour
     public int currentLevel;
     string yesNo;
     public AudioClip clickSound;
+    public AudioClip winSound;
+    public AudioClip loseSound;
     void Start()
     {
         currentLevel = PlayerPrefs.GetInt("CurrentLevel");
@@ -18,11 +20,13 @@ public class AfterLevel : MonoBehaviour
         {
             WinUI.SetActive(true);
             LoseUI.SetActive(false);
+            AudioManager.Instance.PlaySFX(winSound);
         }
         else
         {
             WinUI.SetActive(false);
             LoseUI.SetActive(true);
+            AudioManager.Instance.PlaySFX(loseSound);
         }
     }
 

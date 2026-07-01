@@ -67,7 +67,7 @@ LV5|6
  B DDD B 
  BBBBBBB 
 END
-LV6|7
+LV6|6
          
          
    BBBB   
@@ -82,15 +82,15 @@ LV6|7
          
 END
 LV7|8
-BBB   B
-BFB   
-B B B K B
-B B   
-B B   B
-B B   
-B B   
-B L  
-BBB    
+BBBB  B     
+BF B   
+B  BB K B
+B  B   
+B  B  B        
+B  B   
+B  L   
+B  L  
+BBBB    
 END
 LV8|9
 BBBBBBB
@@ -108,30 +108,30 @@ BBBBBBB
          
 END
 LV9|9
-B  B  B  
-  BF B  B
-B  B  B  
-  B  B  B
-B  B  B  
-  B  B  B
-B  B  B  
-  B  B  B
-B  B  B  
-  B  B  B
-  
-  
+BBBBBBBBB
+B       B
+BF      B
+BBBBB   B
+    B   B
+    B   B
+BBBBB   B
+B       B
+B       B
+B  BBBBBB
+B  B
+B  B
 END
 LV10|9
-      F     
-DDDDDDDDD     
-DDDDDDDDD     
-DDDDDDDDD     
-DDDDDDDDD     
-DDDDDDDDD     
-DDDDDDDDD     
-DDDDDDDDD     
-DDDDDDD     
-DDDDDDD   
+BBB   BBB
+K B   B F     
+      L 
+BB     BB
 
-  
+
+
+
+
+DDD   DDD
+
+ 
 END

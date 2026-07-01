@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlockSound: {fileID: 8300000, guid: 478c9257514ad3249a61d56bd02ac578, type: 3}
   dissappearTime: 0.5
+  sr: {fileID: 7879345558770306327}

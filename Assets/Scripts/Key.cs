@@ -5,7 +5,13 @@ public class Key : MonoBehaviour
 {
     public AudioClip unlockSound;
     public float dissappearTime;
-    
+    public SpriteRenderer sr;
+    private void Start()
+    {
+        sr.DOFade(0.5f, 1f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine);
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
