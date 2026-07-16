@@ -55,12 +55,8 @@ public class AfterLevel : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", currentLevel+1);
         AudioManager.Instance.PlaySFX(clickSound);
         SceneManager.LoadScene(1);
-        if (PlayerPrefs.GetInt("AdShowCount") >= 2)
-        {
-            AdsManager.Instance.inter.ShowInterstitialAd();
-            PlayerPrefs.SetInt("AdShowCount", 0);
-        }
+        PlayerPrefs.SetInt("AdShowCount", PlayerPrefs.GetInt("AdShowCount") + 1);
     }
 
-    
+
 }

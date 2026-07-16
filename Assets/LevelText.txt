@@ -135,3 +135,73 @@ DDD   DDD
 
  
 END
+LV11|3
+  BBBBB
+  B DFB
+  B D B
+  B DDB 
+  B   B 
+  B   B 
+  B   B 
+  B   B 
+  B   B 
+  B   B 
+  B   B 
+  B   B   
+END
+LV12|6
+     BBBB
+     B FB
+     B  B
+BBBBBB  B
+B       B
+B       B
+B  BBBBBB   
+B  B 
+B  BBBBBBB    
+B        B 
+BBBBB    B 
+     B   B
+END
+LV13|6
+   B    F
+   B 
+   B
+   B
+   B
+   B 
+   BLLLLK 
+   B 
+   B 
+   B 
+   B 
+   B BBBB
+END
+LV14|6
+
+F
+BBBBB
+
+
+    BBBBB 
+
+
+BBBBB
+
+
+    BBBBB 
+END
+LV15|9
+    L
+F   L 
+BBBBB
+
+
+    BBBBB 
+
+K
+BBBBB
+
+
+    BBBBB 
+END

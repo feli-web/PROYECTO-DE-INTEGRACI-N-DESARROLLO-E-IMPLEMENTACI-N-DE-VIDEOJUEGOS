@@ -19,7 +19,7 @@ public class AdsManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        inter.LoadInterstitialAd();
+        //inter.LoadInterstitialAd();
     }
 
     // Update is called once per frame

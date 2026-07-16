@@ -211,11 +211,7 @@ public class LevelSelectorGenerator : MonoBehaviour
 
         AudioManager.Instance.PlaySFX(clickSound);
 
-        if (PlayerPrefs.GetInt("AdShowCount") >= 2)
-        {
-            AdsManager.Instance.inter.ShowInterstitialAd();
-            PlayerPrefs.SetInt("AdShowCount", 0);
-        }
+        PlayerPrefs.SetInt("AdShowCount", PlayerPrefs.GetInt("AdShowCount") + 1);
     }
 
 }

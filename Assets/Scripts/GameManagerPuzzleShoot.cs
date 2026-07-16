@@ -20,7 +20,11 @@ public class GameManagerPuzzleShoot : MonoBehaviour
         levelTextCreator = GameObject.Find("LevelTextCreator").GetComponent<LevelTextCreator>();
         startingBullets = levelTextCreator.bullets;
         StarDisplay();
-        PlayerPrefs.SetInt("AdShowCount", PlayerPrefs.GetInt("AdShowCount") + 1);
+        if (PlayerPrefs.GetInt("AdShowCount") >= 2)
+        {
+            AdsManager.Instance.inter.ShowInterstitialAd();
+            PlayerPrefs.SetInt("AdShowCount", 0);
+        }
     }
 
     // Update is called once per frame
@@ -47,14 +51,7 @@ public class GameManagerPuzzleShoot : MonoBehaviour
     {
         SceneManager.LoadScene(i);
         AudioManager.Instance.PlaySFX(clickSound);
-        if (i == 1)
-        {
-            if (PlayerPrefs.GetInt("AdShowCount") >= 2)
-            {
-                AdsManager.Instance.inter.ShowInterstitialAd();
-                PlayerPrefs.SetInt("AdShowCount", 0);
-            }
-        }
+        PlayerPrefs.SetInt("AdShowCount", PlayerPrefs.GetInt("AdShowCount") + 1);
     }
     public void StarDisplay()
     {
